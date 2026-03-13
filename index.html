@@ -3,52 +3,199 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Приглашение</title>
-  <meta name="description" content="Свадебное приглашение — фото‑конверт"/>
+  <title>Свадебное приглашение — Виктор и Софья</title>
+  <meta name="description" content="Электронное приглашение на свадьбу Виктора и Софьи"/>
+
+  <!-- Шрифты -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-  <!-- Контент второй страницы (фон под ромбами) -->
-  <main class="page-2" aria-label="Вторая страница">
-    <div class="page-2-inner"></div>
-  </main>
+  <!-- Музыка: замените src на ваш файл -->
+  <audio id="bgAudio" preload="auto" src="1_klass_-_Sukiny_deti_(Zvyki.com).mp3" loop></audio>
 
-  <!-- Оверлей с двумя фото-ромбами -->
-  <section class="photo-envelope" id="photoEnvelope" aria-label="Открыть приглашение">
-    <!-- Верхнее фото -->
-    <figure class="diamond top">
-      <div class="img-wrap">
-        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop" alt="Фото верхнее">
-      </div>
-      <div class="joint-notch"></div>
-    </figure>
+  <!-- Оверлей: две прямоугольные фотографии, стык по центру, печать поверх -->
+  <section class="envelope-overlay" id="envelopeOverlay" aria-label="Открыть приглашение">
+    <!-- Узкие боковые “просветы” второй страницы -->
+    <div class="peek2 peek2-left"></div>
+    <div class="peek2 peek2-right"></div>
 
-    <!-- Нижнее фото -->
-    <figure class="diamond bottom">
-      <div class="img-wrap">
-        <img src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?q=80&w=1200&auto=format&fit=crop" alt="Фото нижнее">
-      </div>
-      <div class="joint-notch"></div>
-    </figure>
+    <!-- Верхнее и нижнее прямоугольные изображения -->
+    <div class="rect-cover rect-top">
+      <img src="https://images.unsplash.com/photo-1519223400710-6da368f6e36b?q=80&w=1600&auto=format&fit=crop" alt="Верхнее фото">
+    </div>
+    <div class="rect-cover rect-bottom">
+      <img src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?q=80&w=1600&auto=format&fit=crop" alt="Нижнее фото">
+    </div>
 
-    <!-- Печать (PNG 240×240 для ретины, отображение 120px) -->
-    <button class="seal" id="sealBtn" aria-label="Открыть">
-      <img src="https://via.placeholder.com/240x240.png?text=Seal" alt="Печать">
+    <!-- Печать PNG по центру -->
+    <button class="seal-img-btn" id="sealImgBtn" aria-label="Открыть">
+      <img src="https://via.placeholder.com/240x240.png?text=Seal" alt="Печать" width="120" height="120">
     </button>
 
-    <!-- Заголовок и подсказка -->
-    <div class="centered">
-      <h1 class="title">ПРИГЛАШЕНИЕ<br>НА СВАДЬБУ</h1>
-      <div class="hint">нажмите,<br>чтобы открыть</div>
+    <!-- Текст поверх обложки -->
+    <div class="envelope-overlay-center">
+      <h1 class="envelope-title">ПРИГЛАШЕНИЕ<br>НА СВАДЬБУ</h1>
+      <div class="envelope-hint">нажмите,<br>чтобы открыть</div>
     </div>
   </section>
 
-  <!-- Опционально: музыка -->
-  <audio id="bgAudio" preload="auto" src="./your-track.mp3" loop></audio>
+  <!-- Страница 2: Две полароидные фотографии рядом -->
+  <section class="page page-polaroids" id="page2" aria-label="Знакомство">
+    <div class="polaroids-wrap">
+      <div class="polaroid p-left">
+        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=1200&auto=format&fit=crop" alt="Фото 1">
+        <div class="caption">— интересно, кто будет моим мужем, когда я вырасту?</div>
+      </div>
+      <div class="polaroid p-right">
+        <img src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?q=80&w=1200&auto=format&fit=crop" alt="Фото 2">
+        <div class="caption">— им буду я</div>
+      </div>
+    </div>
+    <div class="names">Виктор&nbsp;и&nbsp;Софья</div>
+    <div class="scroll-indicator">
+      <span class="arrow"></span>
+    </div>
+  </section>
+
+  <!-- Страница 3: Обращение + календарь -->
+  <section class="page page-invite" id="page3" aria-label="Мы ждём вас">
+    <div class="invite-wrap">
+      <h2 class="title-hero">ДОРОГИЕ РОДНЫЕ<br>И ДРУЗЬЯ!</h2>
+      <p class="lead">
+        Спешим сообщить радостную новость — мы женимся! В этот день мы очень хотим оказаться в окружении самых близких и дорогих для нас людей.
+      </p>
+
+      <div class="calendar-card reveal-up">
+        <div class="calendar-title">МЫ ЖДЁМ ВАС</div>
+        <div class="month">ИЮЛЬ</div>
+        <div class="cal-grid">
+          <div class="wday">ПН</div><div class="wday">ВТ</div><div class="wday">СР</div><div class="wday">ЧТ</div><div class="wday">ПТ</div><div class="wday">СБ</div><div class="wday">ВС</div>
+          <div class="empty"></div><div class="empty"></div>
+          <div class="d">1</div><div class="d">2</div><div class="d">3</div><div class="d">4</div><div class="d">5</div>
+          <div class="d">6</div><div class="d">7</div><div class="d">8</div><div class="d">9</div><div class="d">10</div><div class="d">11</div><div class="d">12</div>
+          <div class="d">13</div><div class="d">14</div><div class="d">15</div><div class="d">16</div><div class="d">17</div>
+          <div class="d active">18</div>
+          <div class="d">19</div><div class="d">20</div><div class="d">21</div><div class="d">22</div><div class="d">23</div><div class="d">24</div><div class="d">25</div>
+          <div class="d">26</div><div class="d">27</div><div class="d">28</div><div class="d">29</div><div class="d">30</div><div class="d">31</div>
+        </div>
+        <p class="note">Не пропустите важный день — день нашей свадьбы!</p>
+      </div>
+
+      <div class="date-decor">18 / 07 / 26</div>
+    </div>
+  </section>
+
+  <!-- Страница 4: Локации -->
+  <section class="page page-locations" id="page4" aria-label="Локация">
+    <h2 class="title-hero">ЛОКАЦИЯ</h2>
+
+    <div class="location-card reveal-up">
+      <div class="loc-kind">ЗАГС</div>
+      <div class="loc-name">Название площадки — заглушка</div>
+      <div class="loc-addr">г. Город, ул. Улица, дом 1</div>
+      <div class="loc-photo">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Фото локации">
+      </div>
+      <a class="btn-outline" href="https://yandex.ru/maps/?text=%D0%97%D0%B0%D0%B3%D1%81%20%D0%B0%D0%B4%D1%80%D0%B5%D1%81" target="_blank" rel="noopener">посмотреть на карте</a>
+    </div>
+
+    <div class="divider-line"></div>
+
+    <div class="location-card reveal-up">
+      <div class="loc-kind">РЕСТОРАН «LOFT HALL»</div>
+      <div class="loc-name">Название ресторана — заглушка</div>
+      <div class="loc-addr">г. Город, ул. Улица, дом 2</div>
+      <div class="loc-photo">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop" alt="Фото локации">
+      </div>
+      <a class="btn-outline" href="https://yandex.ru/maps/?text=%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%20%D0%B0%D0%B4%D1%80%D0%B5%D1%81" target="_blank" rel="noopener">посмотреть на карте</a>
+    </div>
+  </section>
+
+  <!-- Страница 5: Тайминг -->
+  <section class="page page-timing" id="page5" aria-label="Тайминг">
+    <h2 class="title-hero">ТАЙМИНГ</h2>
+    <div class="timeline">
+      <div class="time-item">
+        <img class="icon" src="https://via.placeholder.com/96x96?text=I1" alt="">
+        <div class="time">15:00</div>
+        <div class="what">Сбор гостей</div>
+      </div>
+      <div class="time-item">
+        <img class="icon" src="https://via.placeholder.com/96x96?text=I2" alt="">
+        <div class="time">15:30</div>
+        <div class="what">Выездная регистрация</div>
+      </div>
+      <div class="time-item">
+        <img class="icon" src="https://via.placeholder.com/96x96?text=I3" alt="">
+        <div class="time">16:15</div>
+        <div class="what">Банкет</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Страница 6: Дресс-код -->
+  <section class="page page-dresscode" id="page6" aria-label="Дресс-код">
+    <h2 class="title-hero">ДРЕСС-КОД</h2>
+    <p class="lead small">Будем рады видеть вас в красивых нарядах в палитре нашей свадьбы</p>
+    <div class="colorw-wrap">
+      <div class="colorw-photo reveal-left">
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop" alt="">
+      </div>
+      <div class="colorw-title reveal-up">Color wedding</div>
+    </div>
+  </section>
+
+  <!-- Страница 7: Пожелания -->
+  <section class="page page-wishes" id="page7" aria-label="Пожелания">
+    <h2 class="title-hero">ПОЖЕЛАНИЯ</h2>
+    <div class="wishes-card">
+      <button class="nav prev" aria-label="Назад" data-dir="-1">‹</button>
+      <div class="slides">
+        <div class="slide" data-idx="0">
+          Лучшая поддержка для нас — ваши искренние пожелания и лучезарные улыбки, остальное можно поместить в конверт
+        </div>
+        <div class="slide" data-idx="1">
+          Мы ценим традиции, но, к сожалению, не сможем в полной мере насладиться красотой цветов… Поэтому будем рады любой другой альтернативе — например, бутылочке хорошего вина
+        </div>
+      </div>
+      <button class="nav next" aria-label="Вперёд" data-dir="1">›</button>
+      <div class="dots" role="tablist" aria-label="Индикатор">
+        <button class="dot is-active" data-to="0" aria-selected="true"></button>
+        <button class="dot" data-to="1" aria-selected="false"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Страница 8: Обратный отсчёт -->
+  <section class="page page-countdown" id="page8" aria-label="До свадьбы осталось">
+    <div class="count-card reveal-up">
+      <h2 class="title-hero">ДО СВАДЬБЫ ОСТАЛОСЬ</h2>
+      <div class="count-grid" aria-live="polite">
+        <div class="cell"><div class="num" id="cd-days">0</div><div class="lab">дней</div></div>
+        <div class="cell"><div class="num" id="cd-hours">0</div><div class="lab">часов</div></div>
+        <div class="cell"><div class="num" id="cd-minutes">0</div><div class="lab">минут</div></div>
+        <div class="cell"><div class="num" id="cd-seconds">0</div><div class="lab">секунд</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Страница 9: Финал — полароид на фоне -->
+  <section class="page page-finale" id="page9" aria-label="До скорой встречи">
+    <div class="finale-card">
+      <div class="final-polaroid">
+        <img id="final-polaroid-img" src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop" alt="Наше фото">
+        <div class="final-caption">До скорой встречи! ❤️</div>
+      </div>
+      <div class="with-love">С любовью,</div>
+      <div class="final-names">Виктор&nbsp;Софья</div>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
