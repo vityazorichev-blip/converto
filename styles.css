@@ -149,7 +149,7 @@ body{
 .page-timing{
   background:
     linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.75)),
-    url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+    url('https://sun9-79.userapi.com/s/v1/ig2/tRMumipGv3PpCCWL1XbdvInY9cYfxCjzJU4NQgFlZyEomtoGO0S18aydBby4JMwyZW1qAlLCzDgr5bLP5-2W63iA.jpg?quality=95&as=32x57,48x85,72x128,108x192,160x285,240x427,360x640,480x854,540x960,640x1138,720x1281,1012x1800&from=bu&cs=1012x0') center/cover no-repeat;
 }
 .timeline{ width:100%; max-width:520px; display:flex; flex-direction:column; align-items:center; gap:22px }
 .time-item{ text-align:center; opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease }
@@ -175,7 +175,7 @@ body{
 .page-wishes{
   background:
     linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.9)),
-    url('https://images.unsplash.com/photo-1549187774-b4e9b0445b06?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+    url('https://sun9-23.userapi.com/s/v1/ig2/K973rsO0NxgXv4kYLYUM2WkdjbF9VGtQM5xQOd4cvi3Vdffxu67Tw4JmRJAZmeQdVUWas6TRwlCo3GAUnzq_M4e6.jpg?quality=95&as=32x57,48x85,72x128,108x192,160x284,240x427,360x640,480x853,540x960,640x1138,720x1280,900x1600&from=bu&cs=900x0') center/cover no-repeat;
 }
 .wishes-card{
   width:100%; max-width:620px; background:#fff; border-radius:16px; border:1px solid rgba(0,0,0,.06); box-shadow:var(--shadow);
@@ -197,7 +197,7 @@ body{
 .page-countdown{
   background:
     linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.85)),
-    url('https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+    url('https://sun9-60.userapi.com/s/v1/ig2/JXr8ppxzf6QqCnGXqqaJXWFFrhYsWEIhX7YjHsDsjj9xuFXg6fPc_oRHI_ilOZ9LTw8GBImjoWoPyEuRrWJ8dool.jpg?quality=95&as=32x57,48x85,72x128,108x192,160x285,240x427,360x641,480x854,499x888&from=bu&cs=499x0') center/cover no-repeat;
 }
 .count-card{
   width:100%; max-width:620px; background:#fff; border-radius:18px; border:1px solid rgba(0,0,0,.06); box-shadow:var(--shadow); padding:18px;
@@ -211,7 +211,7 @@ body{
 .page-finale{
   background:
     linear-gradient(180deg,rgba(255,255,255,.95),rgba(255,255,255,.95)),
-    url('https://images.unsplash.com/photo-1464375117522-1311d6a5a61f?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    url('https://sun1-14.userapi.com/s/v1/ig2/IeC-EHWncoMCGbnY7xvYz8gt8gTwWtEne4B_uiYPewQ3bdPiWQg5HSAMY4OmcKL8k8FqannJTWyMVd1y6zZ48ZhU.jpg?quality=95&as=32x57,48x85,72x128,108x192,160x284,240x427,360x640,480x853,540x960,640x1137,720x1280,736x1308&from=bu&cs=736x0') center/cover no-repeat;
 }
 .finale-card{ width:100%; max-width:640px; text-align:center; padding:12px }
 .final-polaroid{
