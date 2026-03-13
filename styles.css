@@ -74,7 +74,7 @@ body{
 .page-polaroids{
   background:
     linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,.4)),
-    url('https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+    url('https://sun9-64.userapi.com/s/v1/ig2/NCDb_hC_M3S-yaddnH8_xIDOI30zW4jlssuUnNLGBrHy9RdkFhcCNyH6iDv8xg3GxkDtC5Jmy__s1EahPBiqd2EY.jpg?quality=95&as=32x57,48x85,72x128,108x192,160x285,240x427,360x640,480x854,540x961,561x998&from=bu&cs=561x0') center/cover no-repeat;
 }
 .polaroids-wrap{
   position:relative; width:100%; max-width:620px; height:auto;
