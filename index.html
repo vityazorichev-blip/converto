@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Приглашение</title>
+  <meta name="description" content="Свадебное приглашение — фото‑конверт"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <!-- Контент второй страницы (фон под ромбами) -->
+  <main class="page-2" aria-label="Вторая страница">
+    <div class="page-2-inner"></div>
+  </main>
+
+  <!-- Оверлей с двумя фото-ромбами -->
+  <section class="photo-envelope" id="photoEnvelope" aria-label="Открыть приглашение">
+    <!-- Верхнее фото -->
+    <figure class="diamond top">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop" alt="Фото верхнее">
+      </div>
+      <div class="joint-notch"></div>
+    </figure>
+
+    <!-- Нижнее фото -->
+    <figure class="diamond bottom">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?q=80&w=1200&auto=format&fit=crop" alt="Фото нижнее">
+      </div>
+      <div class="joint-notch"></div>
+    </figure>
+
+    <!-- Печать (PNG 240×240 для ретины, отображение 120px) -->
+    <button class="seal" id="sealBtn" aria-label="Открыть">
+      <img src="https://via.placeholder.com/240x240.png?text=Seal" alt="Печать">
+    </button>
+
+    <!-- Заголовок и подсказка -->
+    <div class="centered">
+      <h1 class="title">ПРИГЛАШЕНИЕ<br>НА СВАДЬБУ</h1>
+      <div class="hint">нажмите,<br>чтобы открыть</div>
+    </div>
+  </section>
+
+  <!-- Опционально: музыка -->
+  <audio id="bgAudio" preload="auto" src="./your-track.mp3" loop></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

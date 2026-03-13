@@ -1,0 +1,114 @@
+:root{
+  --paper-1:#f6f7f9;   /* фон/бумага */
+  --paper-2:#f1f3f6;
+  --text:#161a23;
+  --muted:#6f7f90;
+
+  --seal-size:120px;     /* диаметр печати */
+  --joint-radius:60px;   /* радиус окружности под печатью */
+
+  --size: clamp(56vmin, 72vmin, 88vmin); /* сторона квадрата-ромба с запасом по краям */
+}
+
+*{ box-sizing:border-box }
+html,body{ height:100% }
+body{ margin:0; font-family:"Playfair Display", serif; color:var(--text) }
+
+/* Вторая страница под оверлеем */
+.page-2{
+  position:fixed; inset:0; z-index:0; overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0), rgba(0,0,0,.05) 68%, rgba(0,0,0,.08) 100%),
+    linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.7)),
+    url('https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+}
+
+/* Оверлей */
+.photo-envelope{
+  position:fixed; inset:0; z-index:5; overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0) 70%, rgba(0,0,0,.05)),
+    linear-gradient(180deg, var(--paper-1), var(--paper-2));
+}
+.photo-envelope.hidden{ display:none }
+
+/* Ромб (квадрат, повернутый на 45°). Центр изначально в середине экрана —
+   точное смещение до касания вычисляет JS, поэтому здесь без offset по Y. */
+.diamond{
+  position:absolute; left:50%; top:50%;
+  width:var(--size); height:var(--size);
+  transform:translate(-50%, -50%) rotate(45deg);
+  margin:0; padding:0; border:none; overflow:visible; z-index:1;
+  filter: drop-shadow(0 18px 28px rgba(0,0,0,.12)); /* внешняя тень */
+}
+.img-wrap{
+  position:absolute; inset:0; overflow:hidden; border-radius:12px;
+  box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 -1px 0 rgba(0,0,0,.06) inset;
+}
+.img-wrap img{
+  position:absolute; inset:-8%;
+  width:116%; height:116%;
+  object-fit:cover; object-position:center;
+  transform:rotate(-45deg);
+}
+
+/* Тень между ромбами */
+.diamond::before{
+  content:""; position:absolute; left:50%; width:120%; height:60px; transform:translateX(-50%);
+  pointer-events:none; z-index:-1; filter:blur(10px);
+}
+.diamond.top::before{ bottom:-8px; background:linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,0)) }
+.diamond.bottom::before{ top:-8px; background:linear-gradient(0deg, rgba(0,0,0,.18), rgba(0,0,0,0)) }
+
+/* Округление в месте касания — круг «под печатью», чуть врезан в ромбы */
+.joint-notch{
+  position:absolute; left:50%;
+  width:calc(var(--joint-radius)*2); height:calc(var(--joint-radius)*2);
+  margin-left:calc(var(--joint-radius)*-1);
+  background:var(--paper-1); border-radius:50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05) inset;
+}
+.diamond.top .joint-notch{ bottom: calc(var(--joint-radius)*-1 + 0.5px) }
+.diamond.bottom .joint-notch{ top: calc(var(--joint-radius)*-1 + 0.5px) }
+
+/* Печать по центру (ретина: 240×240 источник) */
+.seal{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:3;
+  width:var(--seal-size); height:var(--seal-size); border:none; padding:0; background:transparent; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+}
+.seal img{ width:100%; height:100%; display:block; border-radius:50%; pointer-events:none; filter:drop-shadow(0 8px 16px rgba(0,0,0,.2)) }
+
+/* Текст */
+.centered{
+  position:absolute; left:50%; top:10%; transform:translateX(-50%); z-index:4;
+  text-align:center; color:#12151c; padding:0 24px;
+}
+.title{ margin:0 0 18px; font-weight:600; font-size:32px; line-height:1.2; letter-spacing:.3px }
+.hint{ font-size:14px; color:var(--muted) }
+
+/* Анимации открытия: ромбы уезжают за кадр (JS выставит исходное положение; класс open — финальное) */
+.photo-envelope.open .diamond.top{ transform:translate(-50%, -170%) rotate(45deg) }
+.photo-envelope.open .diamond.bottom{ transform:translate(-50%, 70%) rotate(45deg) }
+.diamond{ transition: transform 1.1s cubic-bezier(.2,.7,.2,1) }
+
+/* Печать — физичное отлипание и падение */
+@keyframes sealUnstick{
+  0%{ transform:translate(-50%,-50%) scale(1) rotate(0deg) }
+  25%{ transform:translate(-50%,-54%) scale(0.96,1.04) rotate(-3deg) }
+  50%{ transform:translate(-50%,-46%) scale(1.05,0.95) rotate(3deg) }
+  100%{ transform:translate(-50%,-48%) scale(1) rotate(0deg) }
+}
+@keyframes sealDrop{
+  0%{ transform:translate(-50%,-48%) scale(1) rotate(0deg); opacity:1 }
+  100%{ transform:translate(-50%, 18%) scale(0.92) rotate(4deg); opacity:0 }
+}
+.seal.fall{
+  animation: sealUnstick .28s cubic-bezier(.25,.7,.2,1) 0s 1 both,
+             sealDrop .52s cubic-bezier(.2,.7,.2,1) .28s 1 forwards;
+}
+
+/* Адаптив */
+@media (max-width:420px){
+  .title{ font-size:28px }
+}
