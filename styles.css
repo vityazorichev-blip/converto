@@ -51,6 +51,22 @@ body{
   background:rgba(0,0,0,.06); transform:translateY(-.5px); z-index:2;
 }
 
+/* Текст поверх конверта */
+.envelope-text{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:"Great Vibes", cursive;
+  color:#1b1f2a;
+  text-shadow:0 2px 6px rgba(0,0,0,.12);
+  z-index:4;
+  pointer-events:none;
+  white-space:nowrap;
+  transition:opacity .35s ease, transform .35s ease;
+}
+.envelope-text.top{ top:22%; font-size:42px }
+.envelope-text.bottom{ bottom:22%; font-size:26px; opacity:.95 }
+
 /* Печать по центру */
 .seal-img-btn{
   position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); z-index:3;
@@ -61,6 +77,12 @@ body{
 /* Открытие */
 .envelope-overlay.open .rect-top{ transform:translateY(-120%) }
 .envelope-overlay.open .rect-bottom{ transform:translateY(120%) }
+/* Исчезновение текста при клике/открытии */
+.envelope-overlay.open .envelope-text,
+.envelope-overlay.opening .envelope-text{
+  opacity:0;
+  transform:translateX(-50%) translateY(6px);
+}
 
 /* Падение печати */
 @keyframes dropOut{
@@ -222,7 +244,7 @@ body{
 .final-caption{ margin-top:8px; font-size:14px; color:#2b3447 }
 .with-love{ margin:14px 0 6px; color:#4b5f79 }
 .final-names{
-  font-family: "Great Vibes", "Playfair Display", serif;
+  font-family:"Great Vibes","Playfair Display",serif;
   font-size:36px; color:#1b1f2a; letter-spacing:.5px;
 }
 

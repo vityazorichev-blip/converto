@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // анимация печати, затем разъезд обложек и скрытие
     if (sealBtn) {
+      // лёгкий фейд текста ещё до открытия
+      overlay.classList.add('opening');
       sealBtn.classList.add('fall');
       setTimeout(() => {
         sealBtn.style.display = 'none';
