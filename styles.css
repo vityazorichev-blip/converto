@@ -56,16 +56,35 @@ body{
   position:absolute;
   left:50%;
   transform:translateX(-50%);
-  font-family:"Great Vibes", cursive;
   color:#1b1f2a;
   text-shadow:0 2px 6px rgba(0,0,0,.12);
   z-index:4;
   pointer-events:none;
-  white-space:nowrap;
   transition:opacity .35s ease, transform .35s ease;
 }
-.envelope-text.top{ top:22%; font-size:42px }
-.envelope-text.bottom{ bottom:22%; font-size:26px; opacity:.95 }
+
+/* Верхняя надпись — сменён шрифт и добавлены отступы по сторонам,
+   чтобы крайние буквы не упирались в края экрана */
+.envelope-text.top{
+  top:22%;
+  font-family:"Playfair Display", serif;
+  font-weight:700;
+  font-size:36px;
+  letter-spacing:.5px;
+  white-space:nowrap;
+  padding:0 6vw;           /* безопасные боковые поля */
+  max-width:100vw;
+  box-sizing:border-box;   /* чтобы padding учитывался в ширину */
+}
+
+/* Нижняя надпись — без изменений по шрифту и позиции */
+.envelope-text.bottom{
+  bottom:22%;
+  font-family:"Great Vibes", cursive;
+  font-size:26px;
+  opacity:.95;
+  white-space:nowrap;
+}
 
 /* Печать по центру */
 .seal-img-btn{
